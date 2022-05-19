@@ -1,0 +1,62 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<EF_DB_First.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="jumbotron">
+    <h2>Output Caching in Asp.Net MVC</h2>
+    <h3>Last Update Data: <strong style="color:red;">@DateTime.Now.ToString()</strong></h3>
+
+
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ProductDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Quantity)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Pid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Pid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Pid })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Products", new { page }))

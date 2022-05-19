@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5edc34e7-69fe-42f0-a6f1-b3c279335c35": {
+      "ProjectGuid": "5edc34e7-69fe-42f0-a6f1-b3c279335c35",
+      "DisplayName": "FormAuthenticationInMVC",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
